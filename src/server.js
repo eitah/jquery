@@ -16,12 +16,12 @@ app.use(express.static(path.join(__dirname, '../static')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3334;
 
 app.listen(port, () => {
   logger.log('info', '[EXPRESS] - listening port: %d', port);
 });
 
 app.use('/', require('./controllers/home'));
-
+app.use('/games', require('./controllers/games'));
 module.exports = app;

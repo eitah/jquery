@@ -14,3 +14,15 @@ router.get('/about', (req, res) => {
 router.get('/faq', (req, res) => {
   res.render('home/faq');
 });
+
+router.get('/twitch', (req, res) => {
+  res.render('home/twitch');
+});
+
+router.get('/coins', (req, res) => {
+  res.render('home/coins');
+});
+
+router.get('/hangman', (req, res) => {
+  res.render('home/hangman');
+});

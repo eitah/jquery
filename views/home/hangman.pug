@@ -1,0 +1,22 @@
+extends ../shared/template
+block content
+  h1 Hangman
+  input#name(type='text') Name
+  button#new New Game
+  h3  Remaining time is:
+  #timer
+  //-for
+
+
+  input#txtGuess(type='text') Guess
+
+  button#guess Submit Letter
+  ul
+    li#person Name is :
+    li#id Game ID is :
+    li#heads Heads :
+    li#tails Tails :
+  li
+    span Here is the result of your guess:
+    span result
+  #flipResult
