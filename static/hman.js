@@ -10,16 +10,18 @@ function initialize() {
 
 function newGame() {
   const name = $('#txtName').val();
-  console.log('name', name);
+  console.log('the javascript is runningname', name);
   $.ajax({
-    url: '/hangman',
+    url: '/hangman/newGame',
     method: 'post',
     dataType: 'json',
     data: { name },
     success: (rsp) => {
-      update(rsp, []);
+      console.log('success!!', rsp, 'cleanedgame??', rsp.cleanedGame);
+      update(rsp.cleanedGame, rsp.rightLetters);
       toggleGameOn(rsp);
     },
+    error: console.log('call is failing'),
   });
 }
 
@@ -45,9 +47,10 @@ function update(game, rightLetters) {
   // $('#lblRightLetters').text(rightLetters.arrayToString());
   $('#lblName').text(game.name);
   $('#lblId').text(game.id);
-  // $('#lblWordLength').text(game.word.length());
-  $('#lblPastGuess').text(game.guessArray);
-  if (game.didWin !== null) $('#lblIsWon').text(game.didWin);
+  $('#lblWordLength').text(game.wordLength);
+  $('#lblPastGuess').text(game.guesses);
+  $('#lblTimeRemaining').text(game.timeRemaining);
+    if (game.didWin !== null) $('#lblIsWon').text(game.didWin);
 }
 
 function toggleGameOn(game) {

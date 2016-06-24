@@ -12,18 +12,3 @@ const hangmanSchema = new Schema({
 });
 
 module.exports = mongoose.model('Hangman', hangmanSchema);
-
-Hangman.prototype.getRightLetters = (myGame) => {
-  const rightLetters = '_' * myGame.wordPicked.length; // _ _ _ _ _ _
-
-  if (rightLetters > 0) {
-    for (index in rightLetters) {
-      for (guess of guesses) {
-        if (guess === myGame.wordpicked[index]) {
-          rightLetters[index] = myGame.wordpicked[index];
-        }
-      }
-    }
-  }
-  return rightLetters.strToArray;
-};
