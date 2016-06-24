@@ -1,15 +1,23 @@
 extends ../shared/template
 block content
   h1 Coin Flip
-  input#name(type='text')
+  input#txtName(type='text')
   button#new New Game
   button#flip Flip
   ul
-    li#person Name is :
-    li#id Game ID is :
-    li#heads Heads :
-    li#tails Tails :
+    li
+      span #person Name is:
+      span#person
+    li
+      span Game ID is:
+      span#id
+
+    li
+      span Heads:
+      span#heads
+    li
+      span Tails:
+      span#tails
   li
     span Here is the result of your flip:
-    span result
-  #flipResult
+    span#flipResult

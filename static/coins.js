@@ -1,3 +1,8 @@
+/* eslint-disable new-cap, no-console,
+object-shorthand, no-use-before-define,
+func-names */
+
+
 $(document).ready(initialize);
 
 function initialize() {
@@ -8,7 +13,7 @@ function initialize() {
 
 function newGame() {
   console.log('test');
-  const name = $('#name').val();
+  const name = $('#txtName').val();
   $.ajax({
     url: '/coins',
     method: 'post',
@@ -16,12 +21,12 @@ function newGame() {
     data: { name },
     success: function (rsp) {
       update(rsp);
-    }
+    },
   });
 }
 
 function flip() {
-  let result = Math.floor(Math.random() * 2);
+  const result = Math.floor(Math.random() * 2);
   $('#flipResult').text(result);
   $.ajax({
     url: '/coins/${id}/flip',
@@ -32,11 +37,12 @@ function flip() {
       console.log('rsp:', rsp);
       update(rsp);
       $('#flipResult').text(result);
-    }
+    },
+  });
 }
 
 function update(game) {
-  console.log('rsp:', rsp);
+  console.log('game:', game);
   $('#person').text(game.name);
   $('#id').text(game.id);
   $('#heads').text(game.heads);

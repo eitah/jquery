@@ -1,22 +1,41 @@
 extends ../shared/template
 block content
   h1 Hangman
-  input#name(type='text') Name
-  button#new New Game
-  h3  Remaining time is:
-  #timer
+  input#txtName(type='text', value='TestOnly')
+  button#btnNew New Game
+
+
   //-for
 
+  #atGameStart.invisible
 
-  input#txtGuess(type='text') Guess
+    input#txtGuess(type='text')
+    button#btnGuess Submit Letter
 
-  button#guess Submit Letter
-  ul
-    li#person Name is :
-    li#id Game ID is :
-    li#heads Heads :
-    li#tails Tails :
-  li
-    span Here is the result of your guess:
-    span result
-  #flipResult
+    ul
+      li
+        span Word is:
+        span#lblRightLetters
+      li
+        span Name is:
+        span#lblName
+      li
+        span Game ID is:
+        span#lblId
+
+      li
+        span wordlength is:
+        span#lblWordLength
+
+      li
+        span Here are the letters you've already guessed:
+        span#lblPastGuess
+      li
+        span Remaining time is:
+        span#timer
+
+  #atGameEnd.invisible
+
+      li
+        span Game Status is...
+        span#lblIsWon
